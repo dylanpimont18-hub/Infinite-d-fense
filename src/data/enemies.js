@@ -14,7 +14,7 @@ export const ENEMIES = {
     color: 0x16a34a,
   },
   ghost: {
-    name: 'Fantôme',
+    name: 'Fantome',
     hp: 80,
     speed: 90,
     reward: 12,
@@ -45,6 +45,7 @@ export const ENEMIES = {
     speed: 40,
     reward: 150,
     isBoss: true,
+    abilityRadius: 110,
     color: 0xef4444,
   },
   bossLich: {
@@ -53,6 +54,7 @@ export const ENEMIES = {
     speed: 45,
     reward: 150,
     isBoss: true,
+    abilityRadius: 0,
     color: 0x7c3aed,
   },
 };

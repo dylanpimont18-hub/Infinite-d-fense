@@ -1,21 +1,23 @@
 export default class Projectile {
-  constructor(scene, x, y, target, damage, splashRadius, getEnemies) {
+  constructor(scene, x, y, target, damage, splashRadius, getEnemies, damageType, slowFactor, slowDuration) {
     this.target       = target;
     this.damage       = damage;
     this.splashRadius = splashRadius;
     this.getEnemies   = getEnemies;
+    this.damageType   = damageType  ?? 'physical';
+    this.slowFactor   = slowFactor  ?? 0;
+    this.slowDuration = slowDuration ?? 2000;
 
-    this.body = scene.add.circle(x, y, 5, 0xfbbf24).setDepth(4);
+    // Couleur selon le type de degats
+    const color = damageType === 'magic' ? 0x67e8f9 : 0xfbbf24;
+    this.body = scene.add.circle(x, y, 5, color).setDepth(4);
 
     const dist     = Phaser.Math.Distance.Between(x, y, target.x, target.y);
     const duration = Math.max(50, (dist / 400) * 1000);
 
     scene.tweens.add({
-      targets:  this.body,
-      x:        target.x,
-      y:        target.y,
-      duration,
-      ease:     'Linear',
+      targets: this.body, x: target.x, y: target.y,
+      duration, ease: 'Linear',
       onComplete: () => this.impact(),
     });
   }
@@ -27,13 +29,16 @@ export default class Projectile {
     if (this.splashRadius > 0) {
       this.getEnemies().forEach(e => {
         if (Phaser.Math.Distance.Between(px, py, e.x, e.y) <= this.splashRadius) {
-          e.takeDamage(this.damage);
+          e.takeDamage(this.damage, this.damageType);
+          if (this.slowFactor) e.applySlowEffect(this.slowFactor, this.slowDuration);
         }
       });
     } else {
-      if (this.target.alive) this.target.takeDamage(this.damage);
+      if (this.target.alive) {
+        this.target.takeDamage(this.damage, this.damageType);
+        if (this.slowFactor) this.target.applySlowEffect(this.slowFactor, this.slowDuration);
+      }
     }
-
     this.body.destroy();
   }
 }
