@@ -11,9 +11,9 @@ export default class Enemy {
 
     this.waypointIndex = 1;
 
-    this.body  = scene.add.circle(MAP_PATH[0].x, MAP_PATH[0].y, 14, config.color);
+    this.body  = scene.add.circle(MAP_PATH[0].x, MAP_PATH[0].y, 14, config.color).setDepth(5);
     this.body.setStrokeStyle(2, 0xffffff, 0.5);
-    this.hpGfx = scene.add.graphics();
+    this.hpGfx = scene.add.graphics().setDepth(6);
 
     this._onReachBase = onReachBase;
     this._onDie       = onDie;
@@ -26,12 +26,10 @@ export default class Enemy {
 
   moveToNext() {
     if (!this.alive) return;
-
     if (this.waypointIndex >= MAP_PATH.length) {
       this.reachBase();
       return;
     }
-
     const target   = MAP_PATH[this.waypointIndex];
     const dist     = Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y);
     const duration = (dist / this.speed) * 1000;
