@@ -1,4 +1,22 @@
+import Phaser from 'phaser';
+
 import { MAP_PATH } from '../utils/path.js';
+
+function playDeathEffect(scene, x, y, color) {
+  const g = scene.add.graphics().setDepth(7);
+  g.fillStyle(color, 0.8);
+  g.fillCircle(x, y, 14);
+
+  scene.tweens.add({
+    targets: g,
+    scaleX: 2.5,
+    scaleY: 2.5,
+    alpha: 0,
+    duration: 200,
+    ease: 'Sine.easeOut',
+    onComplete: () => g.destroy(),
+  });
+}
 
 export default class Enemy {
   constructor(scene, config, onReachBase, onDie) {
@@ -139,8 +157,9 @@ export default class Enemy {
 
   die() {
     this.alive = false;
+    playDeathEffect(this.scene, this.x, this.y, this.config.color);
     this.cleanup();
-    this._onDie(this.reward);
+    this._onDie(this.reward, this.config);
   }
 
   reachBase() {

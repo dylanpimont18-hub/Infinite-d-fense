@@ -3,7 +3,7 @@ export const ENEMIES = {
     name: 'Gobelin',
     hp: 50,
     speed: 120,
-    reward: 5,
+    reward: 6,
     color: 0x84cc16,
   },
   orc: {
@@ -34,7 +34,7 @@ export const ENEMIES = {
     name: 'Troll',
     hp: 300,
     speed: 55,
-    reward: 25,
+    reward: 35,
     regenDelay: 3000,
     regenAmount: 20,
     color: 0x78716c,

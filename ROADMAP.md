@@ -8,25 +8,25 @@ Guide étape par étape pour mener le projet de la mise en place jusqu'au jeu co
 
 **Objectif** : Avoir un projet qui tourne dans le navigateur depuis VS Code.
 
-- [ ] Installer [Node.js](https://nodejs.org) (LTS)
+- [x] Installer [Node.js](https://nodejs.org) (LTS)
 - [ ] Installer l'extension **Live Server** ou **Vite** dans VS Code
-- [ ] Créer le projet avec Vite :
+- [x] Créer le projet avec Vite :
   ```bash
   npm create vite@latest infinite-d-fense -- --template vanilla
   cd infinite-d-fense
   npm install
   ```
-- [ ] Installer Phaser 3 :
+- [x] Installer Phaser 3 :
   ```bash
   npm install phaser
   ```
-- [ ] Lancer le serveur de développement :
+- [x] Lancer le serveur de développement :
   ```bash
   npm run dev
   ```
-- [ ] Vérifier que la page s'affiche dans le navigateur
-- [ ] Connecter le dossier au dépôt GitHub
-- [ ] Premier commit : `init: project setup with Vite + Phaser 3`
+- [x] Vérifier que la page s'affiche dans le navigateur
+- [x] Connecter le dossier au dépôt GitHub
+- [x] Premier commit : `init: project setup with Vite + Phaser 3`
 
 ---
 
@@ -59,9 +59,9 @@ src/
     └── path.js          # Coordonnées du chemin de la map
 ```
 
-- [ ] Créer l'arborescence de dossiers
-- [ ] Créer les fichiers vides avec un export par défaut
-- [ ] Configurer `main.js` avec la liste des scènes Phaser
+- [x] Créer l'arborescence de dossiers
+- [x] Créer les fichiers vides avec un export par défaut
+- [x] Configurer `main.js` avec la liste des scènes Phaser
 - [ ] Commit : `structure: scaffold project folders and files`
 
 ---
@@ -70,12 +70,12 @@ src/
 
 **Objectif** : Afficher une map avec un chemin sur lequel les ennemis marcheront.
 
-- [ ] Dessiner ou importer le fond de map (forêt fantaisie — placeholder géométrique acceptable)
-- [ ] Définir le chemin comme une liste de points `[{x, y}, ...]` dans `utils/path.js`
-- [ ] Afficher le chemin visuellement (debug : ligne colorée)
-- [ ] Marquer les emplacements de tours disponibles (cercles ou cases)
-- [ ] Afficher le point d'entrée et la base
-- [ ] Commit : `feat: map layout and enemy path defined`
+- [x] Dessiner ou importer le fond de map (forêt fantaisie — placeholder géométrique acceptable)
+- [x] Définir le chemin comme une liste de points `[{x, y}, ...]` dans `utils/path.js`
+- [x] Afficher le chemin visuellement (debug : ligne colorée)
+- [x] Marquer les emplacements de tours disponibles (cercles ou cases)
+- [x] Afficher le point d'entrée et la base
+- [x] Commit : `feat: map layout and enemy path defined`
 
 ---
 
@@ -83,12 +83,12 @@ src/
 
 **Objectif** : Faire marcher un ennemi de l'entrée jusqu'à la base.
 
-- [ ] Créer la classe `Enemy` avec : PV, vitesse, récompense en or
-- [ ] Implémenter le déplacement point-à-point le long du chemin
-- [ ] Déduire 1 PV à la base quand un ennemi arrive
-- [ ] Détruire l'ennemi quand ses PV tombent à 0
-- [ ] Afficher une barre de vie sur chaque ennemi
-- [ ] Tester avec un ennemi gobelin basique
+- [x] Créer la classe `Enemy` avec : PV, vitesse, récompense en or
+- [x] Implémenter le déplacement point-à-point le long du chemin
+- [x] Déduire 1 PV à la base quand un ennemi arrive
+- [x] Détruire l'ennemi quand ses PV tombent à 0
+- [x] Afficher une barre de vie sur chaque ennemi
+- [x] Tester avec un ennemi gobelin basique
 - [ ] Commit : `feat: basic enemy movement along path`
 
 ---
@@ -97,12 +97,12 @@ src/
 
 **Objectif** : Faire apparaître des vagues d'ennemis en séquence.
 
-- [ ] Créer `WaveManager` : gère l'ordre et la composition des vagues
-- [ ] Définir les 10 premières vagues dans `data/waves.js`
-- [ ] Implémenter le spawn avec délai entre chaque ennemi
-- [ ] Passer automatiquement à la vague suivante quand tous les ennemis sont éliminés ou arrivés
-- [ ] Afficher le numéro de vague et un compte à rebours avant le spawn
-- [ ] Ajouter un bouton "Lancer la vague" pour avancer manuellement
+- [x] Créer `WaveManager` : gère l'ordre et la composition des vagues
+- [x] Définir les 10 premières vagues dans `data/waves.js`
+- [x] Implémenter le spawn avec délai entre chaque ennemi
+- [x] Passer automatiquement à la vague suivante quand tous les ennemis sont éliminés ou arrivés
+- [x] Afficher le numéro de vague et un compte à rebours avant le spawn
+- [x] Ajouter un bouton "Lancer la vague" pour avancer manuellement
 - [ ] Commit : `feat: wave spawning system`
 
 ---
@@ -111,14 +111,14 @@ src/
 
 **Objectif** : Poser des tours qui tirent sur les ennemis.
 
-- [ ] Tap sur un emplacement vide → ouvrir un menu de choix de tour
-- [ ] Poser la tour sélectionnée si l'or est suffisant, déduire le coût
-- [ ] Implémenter la logique de ciblage (ennemi le plus avancé dans le chemin)
-- [ ] Créer la classe `Projectile` : se déplace vers la cible, inflige des dégâts à l'impact
+- [x] Tap sur un emplacement vide → ouvrir un menu de choix de tour
+- [x] Poser la tour sélectionnée si l'or est suffisant, déduire le coût
+- [x] Implémenter la logique de ciblage (ennemi le plus avancé dans le chemin)
+- [x] Créer la classe `Projectile` : se déplace vers la cible, inflige des dégâts à l'impact
 - [ ] Implémenter les 2 premières tours :
-  - **Archer** : tir rapide, single-target
-  - **Canon** : tir lent, dégâts de zone
-- [ ] Tap sur une tour existante → afficher ses stats
+  - [x] **Archer** : tir rapide, single-target
+  - [x] **Canon** : tir lent, dégâts de zone
+- [x] Tap sur une tour existante → afficher ses stats
 - [ ] Commit : `feat: tower placement and shooting logic`
 
 ---
@@ -127,12 +127,12 @@ src/
 
 **Objectif** : Rendre la boucle économique fonctionnelle.
 
-- [ ] Créer `EconomyManager` : or courant, ajout, soustraction
-- [ ] Donner de l'or à la mort de chaque ennemi
-- [ ] Donner un bonus d'or pour vague parfaite (0 PV perdus)
-- [ ] Donner de l'or au boss tué
-- [ ] Permettre de vendre une tour (50% remboursé)
-- [ ] Bloquer le placement si or insuffisant (feedback visuel)
+- [x] Créer `EconomyManager` : or courant, ajout, soustraction
+- [x] Donner de l'or à la mort de chaque ennemi
+- [x] Donner un bonus d'or pour vague parfaite (0 PV perdus)
+- [x] Donner de l'or au boss tué
+- [x] Permettre de vendre une tour (50% remboursé)
+- [x] Bloquer le placement si or insuffisant (feedback visuel)
 - [ ] Commit : `feat: gold economy system`
 
 ---
@@ -141,10 +141,10 @@ src/
 
 **Objectif** : Compléter le roster des 5 tours.
 
-- [ ] **Mage de Glace** : ralentit + dégâts zone
-- [ ] **Barricade** : ralentit les ennemis qui passent dessus
-- [ ] **Tour Foudre** : chaîne entre ennemis proches
-- [ ] Équilibrer les coûts et les stats de base
+- [x] **Mage de Glace** : ralentit + dégâts zone
+- [x] **Barricade** : ralentit les ennemis qui passent dessus
+- [x] **Tour Foudre** : chaîne entre ennemis proches
+- [x] Équilibrer les coûts et les stats de base
 - [ ] Commit : `feat: add remaining 3 tower types`
 
 ---
@@ -153,13 +153,13 @@ src/
 
 **Objectif** : Varier les ennemis et introduire les boss.
 
-- [ ] **Orc** : tank lent
-- [ ] **Fantôme** : immunisé aux tours physiques (Archer, Canon)
-- [ ] **Sorcier** : régénère les PV des alliés proches
-- [ ] **Troll** : se régénère s'il n'est pas tué en 3 secondes
-- [ ] **Boss 1 — Ogre des Flammes** : AoE qui désactive les tours proches temporairement
+- [x] **Orc** : tank lent
+- [x] **Fantôme** : immunisé aux tours physiques (Archer, Canon)
+- [x] **Sorcier** : régénère les PV des alliés proches
+- [x] **Troll** : se régénère s'il n'est pas tué en 3 secondes
+- [x] **Boss 1 — Ogre des Flammes** : AoE qui désactive les tours proches temporairement
 - [ ] **Boss 2 — Liche** : ressuscite les ennemis morts proches
-- [ ] Intégrer ces types dans les compositions de vagues
+- [x] Intégrer ces types dans les compositions de vagues
 - [ ] Commit : `feat: all enemy types and boss logic`
 
 ---
@@ -171,8 +171,8 @@ src/
 - [ ] Tap sur une tour → afficher l'arbre de compétences (3 branches × 3 niveaux)
 - [ ] Niveau 1 et 2 : toutes branches disponibles
 - [ ] Niveau 3 : choix exclusif entre les 3 branches
-- [ ] Définir toutes les compétences pour les 5 tours dans `data/towers.js`
-- [ ] Appliquer les effets (stats, comportements) à la tour concernée
+- [x] Définir toutes les compétences pour les 5 tours dans `data/towers.js`
+- [x] Appliquer les effets (stats, comportements) à la tour concernée
 - [ ] Commit : `feat: in-run tower upgrade trees`
 
 ---
@@ -181,11 +181,11 @@ src/
 
 **Objectif** : Conserver une progression permanente entre les runs.
 
-- [ ] Créer `MetaManager` : lecture/écriture dans `localStorage`
-- [ ] Calculer les Gemmes gagnées en fin de run (score × multiplicateur)
-- [ ] Créer l'écran de méta-progression (accessible depuis le menu)
-- [ ] Implémenter les 3 branches (Offensive, Défensive, Économique)
-- [ ] Appliquer les bonus au démarrage de chaque run
+- [x] Créer `MetaManager` : lecture/écriture dans `localStorage`
+- [x] Calculer les Gemmes gagnées en fin de run (score × multiplicateur)
+- [x] Créer l'écran de méta-progression (accessible depuis le menu)
+- [x] Implémenter les 3 branches (Offensive, Défensive, Économique)
+- [x] Appliquer les bonus au démarrage de chaque run
 - [ ] Ajouter un bouton "Réinitialiser la progression" (avec confirmation)
 - [ ] Commit : `feat: meta-progression with localStorage`
 
@@ -195,10 +195,10 @@ src/
 
 **Objectif** : Avoir une interface claire et utilisable sur mobile.
 
-- [ ] **Menu principal** : boutons Jouer / Méta-progression / (Options)
-- [ ] **HUD in-game** : PV base, or, numéro de vague, minuterie, bouton lancer vague
-- [ ] **Écran Game Over** : vague atteinte, score, gemmes gagnées, bouton rejouer
-- [ ] Responsive : s'adapte aux petits écrans (portrait mobile)
+- [x] **Menu principal** : boutons Jouer / Méta-progression / (Options)
+- [x] **HUD in-game** : PV base, or, numéro de vague, minuterie, bouton lancer vague
+- [x] **Écran Game Over** : vague atteinte, score, gemmes gagnées, bouton rejouer
+- [x] Responsive : s'adapte aux petits écrans (portrait mobile)
 - [ ] Contrôles tactiles fluides (tap, pas de hover)
 - [ ] Commit : `feat: complete UI and responsive layout`
 
@@ -208,11 +208,11 @@ src/
 
 **Objectif** : Rendre le jeu agréable à jouer.
 
-- [ ] Ajouter des animations : tir, mort ennemi, pose de tour
-- [ ] Ajouter des effets visuels : explosion Canon, gel Mage, chaîne Foudre
+- [x] Ajouter des animations : tir, mort ennemi, pose de tour
+- [x] Ajouter des effets visuels : explosion Canon, gel Mage, chaîne Foudre
 - [ ] Ajouter des sons : tirs, morts, vague lancée, game over (assets libres)
-- [ ] Équilibrer : tester les vagues 1 à 20+, ajuster coûts et stats
-- [ ] Ajouter un retour visuel quand la base perd des PV (flash rouge)
+- [x] Équilibrer : tester les vagues 1 à 20+, ajuster coûts et stats
+- [x] Ajouter un retour visuel quand la base perd des PV (flash rouge)
 - [ ] Commit : `polish: animations, sounds, and balance pass`
 
 ---
@@ -224,7 +224,7 @@ src/
 - [ ] Tester sur mobile réel (Chrome Android, Safari iOS)
 - [ ] Vérifier les performances (60fps visé, aucun lag sur les grandes vagues)
 - [ ] Corriger les bugs critiques
-- [ ] Builder le projet :
+- [x] Builder le projet :
   ```bash
   npm run build
   ```
